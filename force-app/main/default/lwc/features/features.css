@@ -1,0 +1,27 @@
+.aboutHeader{
+    background-color: #f47c4b;
+    color:#fff;
+    font-family: "Comfortaa", sans-serif;
+    padding:10%;
+}
+.aboutHeading{
+    font-size: 40px;
+    line-height: 1;
+    padding-bottom: 5%;
+}
+.aboutH2{
+    font-size: 22px;
+    font-weight:  700;
+}
+.aboutPara{
+    margin-top: 33px;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: bold;
+}
+.aboutImage{
+    height: 500px;;
+    width:auto;
+    padding-left: 5%;
+    padding-right: 5%;
+}

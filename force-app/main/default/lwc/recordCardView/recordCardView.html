@@ -1,0 +1,106 @@
+<template>
+   
+    <lightning-card>
+        <template if:true={isSpinner}>
+            <div class="exampleHolder">
+            <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+            </div>
+            
+        </template>
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="6" padding="around-small">
+                <div class="slds-grid slds-wrap slds-p-around_medium">
+                    <template for:each={listOfRecords} for:item="eachRecord">
+                        <lightning-card key={eachRecord.Id}
+                                        class="slds-p-around_large">
+
+                            <template if:true={isAccount}>
+                                <lightning-output-field field-name="Account Name">Account Name
+                                </lightning-output-field>
+                                <lightning-formatted-text value={eachRecord.Name} ></lightning-formatted-text><br/>
+                                <lightning-output-field field-name="Phone">Phone
+                                </lightning-output-field>
+                                <lightning-formatted-phone value={eachRecord.Phone} ></lightning-formatted-phone><br/>
+                                <lightning-output-field field-name="Website">Website
+                                </lightning-output-field>
+                                <lightning-formatted-url value={eachRecord.Website}></lightning-formatted-url><br/>
+
+                            </template>
+                            <template if:true={isContact}>
+                                <lightning-output-field field-name="Name">
+                                </lightning-output-field>
+                                <lightning-formatted-text value={eachRecord.Name} ></lightning-formatted-text><br/>
+                                <lightning-output-field field-name="Phone">
+                                </lightning-output-field>
+                                <lightning-formatted-phone value={eachRecord.Phone} ></lightning-formatted-phone><br/>
+                                <lightning-output-field field-name="Email">
+                                </lightning-output-field>
+                                <lightning-formatted-email value={eachRecord.Email}></lightning-formatted-email><br/>
+
+                            </template>
+                            <template if:true={isLead}>
+                                <lightning-output-field field-name="Name">
+                                </lightning-output-field>
+                                <lightning-formatted-text value={eachRecord.Name} ></lightning-formatted-text><br/>
+                                <lightning-output-field field-name="Phone">
+                                </lightning-output-field>
+                                <lightning-formatted-phone value={eachRecord.Phone} ></lightning-formatted-phone><br/>
+                                <lightning-output-field field-name="Email">
+                                </lightning-output-field>
+                                <lightning-formatted-email value={eachRecord.Email}></lightning-formatted-email><br/>
+
+                            </template>
+                            <template if:true={isOpportunity}>
+                                <lightning-output-field field-name="Name">
+                                </lightning-output-field>
+                                <lightning-formatted-text value={eachRecord.Name} ></lightning-formatted-text><br/>
+                                <lightning-output-field field-name="Stage">
+                                </lightning-output-field>
+                                <lightning-formatted-text value={eachRecord.StageName} ></lightning-formatted-text><br/>
+                                <lightning-output-field field-name="Close Date">
+                                </lightning-output-field>
+                                <lightning-formatted-date-time value={eachRecord.closeDate}></lightning-formatted-date-time><br/>
+
+                            </template>
+                            <template if:true={isCase}>
+                                <lightning-output-field field-name="Satus">
+                                </lightning-output-field>
+                                <lightning-formatted-text value={eachRecord.Status} ></lightning-formatted-text><br/>
+                                <lightning-output-field field-name="CaseNumber">
+                                </lightning-output-field>
+                                <lightning-formatted-text value={eachRecord.CaseNumber} ></lightning-formatted-text><br/>
+                                <lightning-output-field field-name="Origin">
+                                </lightning-output-field>
+                                <lightning-formatted-text value={eachRecord.Origin}></lightning-formatted-text><br/>
+                            </template>
+
+                            <!-- p class="slds-m-around_small">{eachRecord.Phone}</p>
+                            <p class="slds-m-around_small">{eachRecord.Website}</p>
+                            <p class="slds-m-around_small">{eachRecord.Industry}</p -->
+                            <br/>
+                            <lightning-button label="Preview"
+                                              variant="success"
+                                              class="slds-m-around_medium"
+                                              value={eachRecord.Id}
+                                              data-id={eachRecord.Id}
+                                              onclick={onPreview}>
+                            </lightning-button>
+                        </lightning-card>
+                    </template>
+                </div>
+
+                </lightning-layout-item>
+                <lightning-layout-item size="6" padding="around-small">
+                    <div class="slds-grid slds-wrap slds-p-around_medium">
+                        <template if:true={isPreviewFormRendered}>
+                            <!-- third component-->
+                            <c-preview-record-component selected-object-name={selectedObject} 
+                                                        selected-record-id={selectedRecordId}>
+                            </c-preview-record-component>
+                        </template>
+                    </div>
+
+                </lightning-layout-item>
+            </lightning-layout>
+    </lightning-card>
+</template>

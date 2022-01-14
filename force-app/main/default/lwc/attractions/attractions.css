@@ -1,0 +1,30 @@
+.attractionsHeader{
+    font-family: "Comfortaa", sans-serif;
+    padding-left:10%;
+    padding-right: 10%;
+}
+.attractionsHeading{
+    font-size: 40px;
+    line-height: 1;
+    padding-top: 6%;
+    padding-bottom: 2%;
+}
+.attractionsCards{
+    margin-top: 42px;
+    width:33.33333%;
+    padding:2%;
+}
+.attractionsCardsH2{
+    font-size: 22px;
+    font-weight: 500;
+    color:#f47c4b;
+}
+.attractionsCardsPara{
+    margin-top: 21px;
+    font-size: 14px;
+    line-height: 24px;
+}
+.attractionsCardsImage{
+    height:auto;
+    width:auto;
+}

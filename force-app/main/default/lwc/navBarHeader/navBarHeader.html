@@ -1,0 +1,58 @@
+<!-- <template>
+    <div class="slds-card navBarHeaderDiv">
+        <ul class="slds-list_horizontal  slds-has-block-links_space slds-float_right">
+            <li class="slds-item item">
+                <a href="#">Theme Park</a>
+            </li>
+            <li class="slds-item item">
+                <a href="#">Tickets & Passes</a>
+            </li>
+            <li class="slds-item item" onclick={handleShow}>
+                Explore
+            </li>
+            <li class="slds-item item bookNowLi">
+                <a href="#">Book Now</a>
+            </li>
+        </ul>
+    </div>
+</template> -->
+
+<template>
+    <lightning-card >
+        <lightning-tabset><!-- active-tab-value={activeTab}-->
+            <lightning-tab label="Home" onactive={handleActive}>
+                <c-ui-wallpaper></c-ui-wallpaper>
+            </lightning-tab>
+
+            <lightning-tab label="Explore">
+                <c-features></c-features>
+            </lightning-tab>
+            
+            <lightning-tab label="Book Now" >
+                <template if:false={isModel}>
+                    <lightning-card title="BOOK NOW" icon-name="custom:custom34">
+                        <div class="slds-p-around_medium">Click on the Book Now!</div>
+                        <div class="slds-p-around_medium slds-align_absolute-center">
+                            <lightning-button variant="brand" label="BOOK Now" title="Book Now" name="bookNow" onclick={handleBookNow} class="slds-m-left_x-small slds-float_right"></lightning-button>
+                        </div>
+                    </lightning-card>
+                </template>
+                
+                <template if:true={isModel}>
+                    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                        <div class="slds-modal__container">
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                            <c-visiter-entry-form onselect={handleSelectedItem}></c-visiter-entry-form>
+                        </div>
+                        </div>
+                        </section>
+                        <div class="slds-backdrop slds-backdrop_open"></div>
+                </template>
+                
+            </lightning-tab>
+            <lightning-tab label="Admin Tab">
+                <c-visitor-admin-table></c-visitor-admin-table>
+            </lightning-tab>
+        </lightning-tabset>
+    </lightning-card>
+</template>

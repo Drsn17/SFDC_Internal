@@ -1,0 +1,49 @@
+<template>
+    <template if:false={isrecordView}>
+        <lightning-card
+          title="Today visitor List"
+          icon-name="custom:custom63"
+        >
+        
+          <div class="slds-p-around_medium">
+            <lightning-input
+              type="text"
+              label="Search For an Account"
+              onchange={searchDataTable}
+              class="slds-m-around_small"
+            ></lightning-input>
+            <lightning-datatable
+              key-field="Id"
+              data={searchedAccountData}
+              columns={accountColumns}
+              hide-checkbox-column
+              sorted-by={sortBy}
+              sorted-direction={sortDirection}
+              onsort={handleSortData}
+              onrowaction={handleRowAction}
+            ></lightning-datatable>
+          </div>
+        </lightning-card>
+    </template>
+
+    <template if:true={isrecordView}>
+        <lightning-card
+            title="User Details"
+            icon-name="custom:custom63"
+        >
+        <div class="slds-p-around_medium">
+        <lightning-record-form
+                record-id= {visitorrecordId}
+                object-api-name= "Visitor_Details__c"
+                layout-type="Full"
+                mode="view"
+                columns="2"
+                class="slds-p-around_small">
+                </lightning-record-form>
+                <lightning-button label="Back" title="Non-primary action" onclick={handleBack} class="slds-m-left_x-small"></lightning-button>
+            </div>
+                </lightning-card>
+        
+    </template>     
+    
+</template>

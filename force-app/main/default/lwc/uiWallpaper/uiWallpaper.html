@@ -1,0 +1,76 @@
+<template>
+    <lightning-card title="Amusement Park">
+        <div class="slds-m-around_x-small">
+            <lightning-carousel>
+                <lightning-carousel-image
+                class="carouselImage"
+                src={image1}
+                header="Custom Beauty"
+                description="A Beauty Description"
+                alternative-text="First Carousel Image"
+                href="https://www.google.com"
+                ></lightning-carousel-image>
+                <lightning-carousel-image
+                class="carouselImage"
+                src={image2}
+                header="Custom View"
+                description="A View Description"
+                alternative-text="Second Carousel Image"
+                href="https://www.google.com"
+                ></lightning-carousel-image>
+                <lightning-carousel-image
+                class="carouselImage"
+                src={image3}
+                header="Custom Play"
+                description="A Play Description"
+                alternative-text="Third Carousel Image"
+                href="https://www.google.com"
+                ></lightning-carousel-image>
+            </lightning-carousel>
+        </div>
+    </lightning-card>
+    
+    <div class="slds-grid slds-gutters">
+    <lightning-card title="MEMBERSHIP" icon-name="action:manage_perm_sets" class="slds-col ticketCard1">
+        <lightning-card title="The Best Way To Maximise Your Values!">
+            <h1>JOIN NOW FOR NO SIGNUP FEE! Includes 50+ incredible benefits 
+                 EVERY VISIT only available for Members.</h1>
+                 <h2>
+                     GOLD PLUS
+                 </h2>
+                 <h3>
+                    Featured Benefits:
+                 </h3>
+                <lightning-button
+                type="submit"
+                variant="brand"
+                class="slds-align_absolute-center my-brand1"
+                label="View All Benefits"
+              ></lightning-button>
+        </lightning-card>    
+        </lightning-card>
+        <lightning-card title="SEASON PASSES" icon-name="action:manage_perm_sets" class="slds-col ticketCard2">
+            <lightning-card title="Pay For Itself In 2 Visits!">
+                <h1>Get unlimited visits to Six Flags Magic Mountain for the 2021 season! BONUS: Buy now and get FREE Upgrade to 2 Park Pass!</h1> 
+                <lightning-button
+                type="submit"
+                variant="brand"
+                class="slds-align_absolute-center my-brand2"
+                label="View All Benefits"
+              ></lightning-button>
+                </lightning-card>
+            </lightning-card>
+            <lightning-card title="ONE DAY TICKET" icon-name="action:manage_perm_sets" class="slds-col ticketCard3">
+                <lightning-card title="Offers!">
+                    <h1>JOIN NOW FOR NO SIGNUP FEE! Select your visit date in advance and save big on one-day park tickets
+                    </h1>
+                <lightning-button
+                type="submit"
+                variant="brand"
+                class="slds-align_absolute-center my-brand3"
+                label="View All Benefits"
+              ></lightning-button>
+                </lightning-card>
+                </lightning-card>
+</div>
+</template>

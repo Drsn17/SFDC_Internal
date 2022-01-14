@@ -1,0 +1,117 @@
+<template>
+    <div style="background: white; min-height: 500px;">
+    <lightning-card title="Visiter Entry Form" icon-name="custom:custom3">
+        <div class="slds-p-around_medium">
+            <template if:true={isDate}>
+                <div class="slds-align_absolute-center">
+                    <lightning-input type="date" placeholder="Select Date for visting" class="date-css visitDate" name="vistingdate" onchange={handleChange} label="Select a Date" ></lightning-input>
+                </div>
+                <div class="slds-p-around_medium slds-align_absolute-center">
+                    <lightning-combobox
+                        name="Totalnumber"
+                        label="Total Number of Vistors"
+                        value={value}
+                        placeholder="Select Progress"
+                        options={options}
+                        onchange={handleChange} ></lightning-combobox>
+                </div>
+                <div>
+                    <lightning-card title="Total Amount" icon-name="custom:custom15">
+                        <div class="slds-p-around_medium">
+                            <h1><strong> You need to pay!!</strong></h1>
+                            <h3><strong>{amountPay}</strong></h3>
+                            
+                        </div>
+                    </lightning-card>
+                </div>
+            </template>
+        
+            <template if:true={isVisiterDetail}>
+                <div class="slds-p-around_medium lgc-bg">
+                    <lightning-record-edit-form layout-type= "full"
+                                object-api-name="Visitor_Details__c"
+                                record-id={visitorId}
+                                onsuccess={handleSuccess}
+                                onsubmit={handleSubmit}
+                                onerror={handleError}
+                                >
+                                
+                                <lightning-messages>
+                                </lightning-messages>
+                                <lightning-layout>
+                                    <lightning-layout-item padding="around-medium" size="6">
+                                        <lightning-input-field field-name="First_Name__c">
+                                        </lightning-input-field>
+                                        <lightning-input-field field-name="Last_Name__c">
+                                        </lightning-input-field>
+                                        <lightning-input-field field-name="Email__c">
+                                        </lightning-input-field>
+                                        <lightning-input-field field-name="Phone__c">
+                                        </lightning-input-field>
+                                        <lightning-input-field field-name="Date_of_Birth__c">
+                                        </lightning-input-field>
+                                        <lightning-input-field field-name="Adhar_Card_No__c">
+                                        </lightning-input-field>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item padding="around-medium" size="6">
+                                        <lightning-input-field field-name="Address_Line_1__c">
+                                        </lightning-input-field>
+                                        <lightning-input-field field-name="Address_Line_2__c">
+                                        </lightning-input-field>
+                                        <lightning-input-field field-name="Post_code__c">
+                                        </lightning-input-field>
+                                        <lightning-input-field field-name="Country__c">
+                                        </lightning-input-field>
+                                        <lightning-input-field field-name="City_Town__c">
+                                        </lightning-input-field>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                    <lightning-button
+                        class="slds-m-top_small"
+                        variant="brand"
+                        type="submit"
+                        name="Submit"
+                        label="Submit">
+                    </lightning-button>
+                </lightning-record-edit-form>
+                </div>
+            </template>
+
+            <template if:true={isPayment}>
+                <div class="slds-p-around_medium lgc-bg">
+                    <lightning-layout>
+                        <lightning-layout-item padding="around-medium" size="6">
+                            <div class="slds-align_absolute-center" style="height: 100px; width:150px" id="creditCard" onclick={handleCDPayment}>
+                                <img src={cdCard}>
+                            </div>
+                            </lightning-layout-item>
+                        <lightning-layout-item padding="around-medium" size="6" >>
+                            <div class="slds-align_absolute-center" style="height: 100px; width:150px" id="api" onclick={handleUPIPayment}>
+                                <img src={gpayUPI}>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    </div>
+            </template>
+
+            <template if:true={isSuccessRegister}>
+                <lightning-card title="SUCCESS" icon-name="custom:custom2">
+                    <div class="slds-p-around_medium">
+                        <h1>Congrtulation!!</h1>
+                        <h3>You have succesfully register for Assument Park!! Be Safe</h3>
+                        <p>Your Pass Id is {visitorId}</p>
+                    </div>
+                </lightning-card>
+            </template>
+
+        </div>
+
+        <div class="slds-docked-form-footer slds-float_right">
+            <lightning-button label="Back"  title="Non-primary action" name="back" onclick={handleBack} class="slds-m-left_x-small slds-float_right"></lightning-button>
+            <lightning-button variant="brand" disabled={isNext} label="Next" title="Primary action" name="next" onclick={handleButton} class="slds-m-left_x-small slds-float_right"></lightning-button>
+          </div>
+
+    </lightning-card>
+</div>
+    
+</template>

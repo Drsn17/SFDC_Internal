@@ -1,0 +1,42 @@
+.carouselImage
+{
+    height:700px;
+    width:700px;
+
+}
+.ticketCard1
+{
+  background-color: #FD6C35;
+  width: 300px;
+  border: 5px solid #FEC526;
+  padding: 10px;
+  font-size: 20px;
+  margin: 10px;
+}
+.ticketCard2
+{
+  background-color: #1ECECA;
+  width: 300px;
+  border: 5px solid #FEC526;
+  padding: 10px;
+  font-size: 20px;
+  margin: 10px;
+}
+.ticketCard3
+{
+  background-color: #3E2425;
+  width: 300px;
+  border: 5px solid #FEC526;
+  padding: 10px;
+  font-size: 20px;
+  margin: 10px;
+}
+.my-brand1 {
+  --sds-c-button-brand-color-background: #164843;
+}
+.my-brand2 {
+  --sds-c-button-brand-color-background: #F72050;
+}
+.my-brand3 {
+  --sds-c-button-brand-color-background: #374649;
+}

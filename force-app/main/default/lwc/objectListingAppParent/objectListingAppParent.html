@@ -1,0 +1,102 @@
+<template>
+  <lightning-layout class="slds-p-around_medium">
+    <lightning-layout-item>
+        <div class="slds-card slds-card-wrapper" style="width: 200px;">
+          <lightning-vertical-navigation onselect={handleSelect}>
+              <lightning-vertical-navigation-section>
+                  <lightning-vertical-navigation-item label="Accounts" name="accounts">
+                  </lightning-vertical-navigation-item>
+                  <lightning-vertical-navigation-item label="Contacts" name="contacts">
+                  </lightning-vertical-navigation-item>
+                  <lightning-vertical-navigation-item label="Opportunities" name="opportunities">
+                  </lightning-vertical-navigation-item>
+                  <lightning-vertical-navigation-item label="Leads" name="leads">
+                  </lightning-vertical-navigation-item>
+                  <lightning-vertical-navigation-item label="Cases" name="cases">
+                  </lightning-vertical-navigation-item>
+              </lightning-vertical-navigation-section>
+          </lightning-vertical-navigation>
+        </div>
+      </lightning-layout-item>
+
+      <lightning-layout-item>
+        <template if:true={accountCheck}>
+          <div class="slds-grid slds-wrap slds-p-around_medium">
+            <template for:each={listOfAccounts} for:item="account">
+              <lightning-card
+                title={account.Name}
+                key={account.Id}
+                class="slds-p-around_medium slds-size_1-of-3"
+              >
+                <p class="slds-m-around_small">{account.Phone}</p>
+                <p class="slds-m-around_small">{account.Website}</p>
+                <p class="slds-m-around_small">{account.Industry}</p>
+                <lightning-button
+                  label="Preview"
+                  variant="success"
+                  class="slds-m-around_small"
+                >
+                </lightning-button>
+              </lightning-card>
+            </template>
+          </div>
+        </template>
+      </lightning-layout-item>
+
+      <lightning-layout-item>
+        <template if:true={contactCheck}>
+          <div class="slds-grid slds-wrap slds-p-around_medium">
+              <template for:each={listOfContacts} for:item="contact">
+                <lightning-card
+                  title={contact.Name}
+                  key={contact.Id}
+                  class="slds-p-around_medium slds-size_1-of-3"
+                >
+                  <p class="slds-m-around_small">{contact.Phone}</p>
+                  <p class="slds-m-around_small">{contact.Email}</p>
+                  <lightning-button
+                    label="Preview"
+                    variant="success"
+                    class="slds-m-around_small"
+                  >
+                  </lightning-button>
+                </lightning-card>
+              </template>
+            </div>
+        </template>
+      </lightning-layout-item>
+  </lightning-layout>
+
+  <!-- <lightning-card title="Event With Data" icon-name="custom:custom9">
+    <lightning-layout class="slds-p-around_medium">
+      <lightning-layout-item>
+        <template for:each={listOfContacts} for:item="contact">
+          <c-object-listing-app-child
+            key={contact.Id}
+            contact={contact}
+            onselected={contactSelected}
+          ></c-object-listing-app-child>
+        </template>
+      </lightning-layout-item>
+      <lightning-layout-item class="slds-p-left_medium">
+        <template if:true={selectedContact}>
+          <p>
+            <lightning-formatted-text
+              value={selectedContact.Name}
+            ></lightning-formatted-text>
+          </p>
+          <p>
+            <lightning-formatted-phone
+              value={selectedContact.Phone}
+            ></lightning-formatted-phone>
+          </p>
+          <p>
+            <lightning-formatted-email
+              value={selectedContact.Email}
+            ></lightning-formatted-email>
+          </p>
+        </template>
+      </lightning-layout-item>
+    </lightning-layout>
+  </lightning-card> -->
+</template>

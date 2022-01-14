@@ -1,0 +1,16 @@
+.navBarHeaderDiv{
+    height:80px;
+    font-family: Gill Sans,Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color:#000;
+    background-color: #ffffff;
+    padding:0%;
+}
+.slds-item.item{
+    padding:2%;
+}
+.bookNowLi{
+    background-color: orange;
+    color:#ffffff;
+}

@@ -1,0 +1,20 @@
+<template>
+    <lightning-card>
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="3" padding="around-small">
+                <!--Showing the objects Name as a navigation item -->
+            <c-object-navigation-items onselect={handleSelectedItem}></c-object-navigation-items>
+            </lightning-layout-item>
+            <lightning-layout-item size="9" padding="around-small">
+                <template if:true={selectedObject}>
+                    <!--Showing the Card form preview-->
+                    <c-record-card-view list-of-records={listOfRecords} 
+                                        is-preview-form-rendered = {isPreviewFormRendered} 
+                                        is-spinner = {isSpinner}
+                                        selected-object={selectedObject}>
+                    </c-record-card-view>
+                </template>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>
